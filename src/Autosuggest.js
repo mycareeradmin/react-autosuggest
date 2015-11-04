@@ -1,3 +1,8 @@
+/******
+Forked to show suggestions supplied from the data as property rather than callback, keeping the format intact
+
+********/
+
 import React, { Component, PropTypes, findDOMNode } from 'react';
 import debounce from 'debounce';
 import classnames from 'classnames';
@@ -15,7 +20,8 @@ export default class Autosuggest extends Component { // eslint-disable-line no-s
     inputAttributes: PropTypes.object,      // Attributes to pass to the input field (e.g. { id: 'my-input', className: 'sweet autosuggest' })
     cache: PropTypes.bool,                  // Set it to false to disable in-memory caching
     id: PropTypes.string,                   // Used in aria-* attributes. If multiple Autosuggest's are rendered on a page, they must have unique ids.
-    scrollBar: PropTypes.bool               // Set it to true when the suggestions container can have a scroll bar
+    scrollBar: PropTypes.bool,               // Set it to true when the suggestions container can have a scroll bar
+	data: PropTypes.object.isRequired        // Forked: The data to be displayed as suggestion
   }
 
   static defaultProps = {
@@ -472,7 +478,7 @@ export default class Autosuggest extends Component { // eslint-disable-line no-s
       return null;
     }
 
-    if (this.isMultipleSections(this.state.suggestions)) {
+    if (this.isMultipleSections(this.props.data)) { //Forked: using this.props.data in place of this.state.suggestions
       return (
         <div id={'react-autosuggest-' + this.props.id}
              className="react-autosuggest__suggestions"
@@ -504,9 +510,9 @@ export default class Autosuggest extends Component { // eslint-disable-line no-s
           className="react-autosuggest__suggestions"
           ref="suggestions"
           role="listbox">
-        {this.renderSuggestionsList(this.state.suggestions, null)}
+        {this.renderSuggestionsList(this.props.data, null)}
       </ul>
-    );
+    ); //Forked: using this.props.data in place of this.state.suggestions
   }
 
   render() {
