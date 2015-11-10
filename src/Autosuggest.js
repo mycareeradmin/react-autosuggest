@@ -136,10 +136,13 @@ export default class Autosuggest extends Component { // eslint-disable-line no-s
 
   getSuggestion(sectionIndex, suggestionIndex) {
     if (this.isMultipleSections(this.state.suggestions)) {
-      return this.state.suggestions[sectionIndex].suggestions[suggestionIndex];
+      // return this.state.suggestions[sectionIndex].suggestions[suggestionIndex];
+	  return this.props.data[sectionIndex].suggestions[suggestionIndex]; // changes as per new change in my Career changes 10.11.2015
     }
 
-    return this.state.suggestions[suggestionIndex];
+    // return this.state.suggestions[suggestionIndex];
+	return this.props.data[suggestionIndex]; // changes as per new change in my Career changes 10.11.2015
+	
   }
 
   getFocusedSuggestion() {

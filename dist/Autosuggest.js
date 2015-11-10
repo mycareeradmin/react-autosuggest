@@ -192,10 +192,12 @@ var Autosuggest = (function (_Component) {
     key: 'getSuggestion',
     value: function getSuggestion(sectionIndex, suggestionIndex) {
       if (this.isMultipleSections(this.state.suggestions)) {
-        return this.state.suggestions[sectionIndex].suggestions[suggestionIndex];
+        // return this.state.suggestions[sectionIndex].suggestions[suggestionIndex];
+        return this.props.data[sectionIndex].suggestions[suggestionIndex]; // changes as per new change in my Career changes 10.11.2015
       }
 
-      return this.state.suggestions[suggestionIndex];
+      // return this.state.suggestions[suggestionIndex];
+      return this.props.data[suggestionIndex]; // changes as per new change in my Career changes 10.11.2015
     }
   }, {
     key: 'getFocusedSuggestion',
