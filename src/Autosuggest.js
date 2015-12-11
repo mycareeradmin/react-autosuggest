@@ -517,6 +517,10 @@ export default class Autosuggest extends Component { // eslint-disable-line no-s
       </ul>
     ); //Forked: using this.props.data in place of this.state.suggestions
   }
+  
+  clearField(){
+	  this.setState({value:''}); //Forked: clear the text field
+  }
 
   render() {
     const ariaActivedescendant =

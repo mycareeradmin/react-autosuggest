@@ -598,6 +598,11 @@ var Autosuggest = (function (_Component) {
       ); //Forked: using this.props.data in place of this.state.suggestions
     }
   }, {
+    key: 'clearField',
+    value: function clearField() {
+      this.setState({ value: '' }); //Forked: clear the text field
+    }
+  }, {
     key: 'render',
     value: function render() {
       var ariaActivedescendant = this.getSuggestionId(this.state.focusedSectionIndex, this.state.focusedSuggestionIndex);
