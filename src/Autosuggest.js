@@ -21,7 +21,7 @@ export default class Autosuggest extends Component { // eslint-disable-line no-s
     cache: PropTypes.bool,                  // Set it to false to disable in-memory caching
     id: PropTypes.string,                   // Used in aria-* attributes. If multiple Autosuggest's are rendered on a page, they must have unique ids.
     scrollBar: PropTypes.bool,               // Set it to true when the suggestions container can have a scroll bar
-	data: PropTypes.object.isRequired        // Forked: The data to be displayed as suggestion
+	data: PropTypes.array.isRequired        // Forked: The data to be displayed as suggestion
   }
 
   static defaultProps = {

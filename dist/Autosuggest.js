@@ -57,7 +57,7 @@ var Autosuggest = (function (_Component) {
       cache: _react.PropTypes.bool, // Set it to false to disable in-memory caching
       id: _react.PropTypes.string, // Used in aria-* attributes. If multiple Autosuggest's are rendered on a page, they must have unique ids.
       scrollBar: _react.PropTypes.bool, // Set it to true when the suggestions container can have a scroll bar
-      data: _react.PropTypes.object.isRequired // Forked: The data to be displayed as suggestion
+      data: _react.PropTypes.array.isRequired // Forked: The data to be displayed as suggestion
     },
     enumerable: true
   }, {
