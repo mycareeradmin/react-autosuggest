@@ -294,6 +294,9 @@ export default class Autosuggest extends Component { // eslint-disable-line no-s
         if (this.state.valueBeforeUpDown !== null && this.suggestionIsFocused()) {
           this.onSuggestionSelected(event);
         }
+		else { //Forked: call suggestion selected with textbox value(no suggestion selected)
+			this.props.onSuggestionSelected(this.state.value, event);
+        }
 
         this.setSuggestionsState(null);
         break;

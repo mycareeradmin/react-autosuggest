@@ -361,6 +361,9 @@ var Autosuggest = (function (_Component) {
           // Enter
           if (this.state.valueBeforeUpDown !== null && this.suggestionIsFocused()) {
             this.onSuggestionSelected(event);
+          } else {
+            //Forked: call suggestion selected with textbox value(no suggestion selected)
+            this.props.onSuggestionSelected(this.state.value, event);
           }
 
           this.setSuggestionsState(null);
